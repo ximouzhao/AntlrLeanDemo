@@ -4,4 +4,5 @@ cert_parse_OU as OU,
 cert_attr_getStartTime as certStartTime
  from jsgx
  where
-  cert_parse_to_OU =025 and cert_parse_to_ST='江苏省' or cert_parse_to_OU =027 and cert_parse_to_ST='江苏省1'
+  cert_parse_to_OU ='025' and cert_parse_to_ST='江苏省' or cert_parse_to_OU ='027' and cert_parse_to_ST='江苏省1'
+or cert_parse_to_OU in ('000','333') and cert_parse_to_ST='江苏省'

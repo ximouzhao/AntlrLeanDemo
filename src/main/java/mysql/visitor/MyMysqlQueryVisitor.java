@@ -8,8 +8,8 @@ import mysql.lexer.MysqlQueryParser;
 import org.antlr.v4.runtime.CharStream;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.math.BigDecimal;
+import java.util.*;
 
 import static org.antlr.v4.runtime.CharStreams.fromFileName;
 import static util.Util.info;
@@ -77,11 +77,41 @@ public class MyMysqlQueryVisitor extends MysqlQueryBaseVisitor {
         if(ctx.comparisonOperator()!=null){
             switch (ctx.getChild(1).getText()){
                 case "=":
-                    String valueStr=ctx.getChild(2).getText();
-                    if(valueStr.startsWith("'")||valueStr.startsWith("\"")){
+                    if(ctx.value(0).textLiteral()!=null){
+                        String valueStr=ctx.value(0).textLiteral().TEXT_STRING().getText();
                         valueStr=valueStr.substring(1,valueStr.length()-1);
+                        return valueStr.equals(jsonObject.getString(ctx.getChild(0).getText()));
+                    }else if(ctx.value(0).decimalLiteral()!=null){
+                        BigDecimal bigDecimal=new BigDecimal(ctx.value(0).decimalLiteral().DECIMAL_LITERAL().getText());
+                        return bigDecimal.equals(jsonObject.getBigDecimal(ctx.fullColumnName().getText()));
                     }
-                    return valueStr.equals(jsonObject.getString(ctx.getChild(0).getText()));
+            }
+        }else if(ctx.IN()!=null){
+            boolean isNot=false;
+            boolean isContain=false;
+            if(ctx.NOT()!=null){
+                isNot=true;
+            }
+
+            Set<MysqlQueryParser.ValueContext> inValueSet=new HashSet<>(ctx.value()) ;
+
+            if(ctx.value(0).textLiteral()!=null){
+                Set<String> stringValues=new HashSet<>();
+                ctx.value().forEach(p->{
+                    stringValues.add(p.getText().substring(1,p.getText().length()-1));
+                });
+                isContain=stringValues.contains(jsonObject.getString(ctx.fullColumnName().getText()));
+            }else if(ctx.value(0).decimalLiteral()!=null){
+                Set<BigDecimal> bigDecimals=new HashSet<>();
+                ctx.value().forEach(p->{
+                    bigDecimals.add(new BigDecimal(p.getText()));
+                });
+                isContain=bigDecimals.contains(jsonObject.getBigDecimal(ctx.fullColumnName().getText()));
+            }
+            if(isNot){
+                return !isContain;
+            }else {
+                return isContain;
             }
         }
         if(ctx.op.getType()== MysqlQueryLexer.AND){
