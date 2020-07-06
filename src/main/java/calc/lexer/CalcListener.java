@@ -1,4 +1,4 @@
-// Generated from D:/javaProject/antlrv4Lean/src/main/java\Calc.g4 by ANTLR 4.8
+// Generated from D:/AntlrLeanDemo/src/main/java\Calc.g4 by ANTLR 4.8
 package calc.lexer;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -78,18 +78,6 @@ public interface CalcListener extends ParseTreeListener {
 	 */
 	void exitParens(CalcParser.ParensContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code AddSub}
-	 * labeled alternative in {@link CalcParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterAddSub(CalcParser.AddSubContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AddSub}
-	 * labeled alternative in {@link CalcParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitAddSub(CalcParser.AddSubContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code MulDiv}
 	 * labeled alternative in {@link CalcParser#expr}.
 	 * @param ctx the parse tree
@@ -101,6 +89,18 @@ public interface CalcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMulDiv(CalcParser.MulDivContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code AddSub}
+	 * labeled alternative in {@link CalcParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddSub(CalcParser.AddSubContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code AddSub}
+	 * labeled alternative in {@link CalcParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddSub(CalcParser.AddSubContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code id}
 	 * labeled alternative in {@link CalcParser#expr}.
