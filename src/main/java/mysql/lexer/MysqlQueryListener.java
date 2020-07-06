@@ -1,4 +1,4 @@
-// Generated from D:/javaProject/antlrv4Lean/src/main/java\MysqlQuery.g4 by ANTLR 4.8
+// Generated from D:/AntlrLeanDemo/src/main/java\MysqlQuery.g4 by ANTLR 4.8
 package mysql.lexer;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -147,16 +147,6 @@ public interface MysqlQueryListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitGroupByItem(MysqlQueryParser.GroupByItemContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link MysqlQueryParser#logicalOperator}.
-	 * @param ctx the parse tree
-	 */
-	void enterLogicalOperator(MysqlQueryParser.LogicalOperatorContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link MysqlQueryParser#logicalOperator}.
-	 * @param ctx the parse tree
-	 */
-	void exitLogicalOperator(MysqlQueryParser.LogicalOperatorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MysqlQueryParser#comparisonOperator}.
 	 * @param ctx the parse tree

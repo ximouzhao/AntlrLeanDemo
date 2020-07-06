@@ -1,4 +1,4 @@
-// Generated from D:/javaProject/antlrv4Lean/src/main/java\MysqlQuery.g4 by ANTLR 4.8
+// Generated from D:/AntlrLeanDemo/src/main/java\MysqlQuery.g4 by ANTLR 4.8
 package mysql.lexer;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -179,18 +179,6 @@ public class MysqlQueryBaseListener implements MysqlQueryListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitGroupByItem(MysqlQueryParser.GroupByItemContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterLogicalOperator(MysqlQueryParser.LogicalOperatorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLogicalOperator(MysqlQueryParser.LogicalOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

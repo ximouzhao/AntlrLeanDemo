@@ -1,4 +1,4 @@
-// Generated from D:/javaProject/antlrv4Lean/src/main/java\MysqlQuery.g4 by ANTLR 4.8
+// Generated from D:/AntlrLeanDemo/src/main/java\MysqlQuery.g4 by ANTLR 4.8
 package mysql.lexer;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -94,12 +94,6 @@ public interface MysqlQueryVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitGroupByItem(MysqlQueryParser.GroupByItemContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link MysqlQueryParser#logicalOperator}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLogicalOperator(MysqlQueryParser.LogicalOperatorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link MysqlQueryParser#comparisonOperator}.
 	 * @param ctx the parse tree

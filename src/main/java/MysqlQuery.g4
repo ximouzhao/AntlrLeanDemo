@@ -32,6 +32,8 @@ UNKNOWN               : U N K N O W N;
  DESC                       : D E S C;
  LIMIT                      : L I M I T ;
  OFFSET                    : O F F S E T;
+ LOGICAL_AND_OPERATOR: '&&';
+ LOGICAL_OR_OPERATOR: '||'  ;
 
 fragment A      : [aA];
 fragment B      : [bB];
@@ -103,7 +105,8 @@ whereClause
     ;
 
  logicExpression
-     : logicExpression logicalOperator logicExpression
+     : logicExpression op=(AND | LOGICAL_AND_OPERATOR) logicExpression
+     | logicExpression op = (OR | LOGICAL_OR_OPERATOR) logicExpression
      | fullColumnName comparisonOperator value
      | fullColumnName BETWEEN value AND value
      | fullColumnName NOT? IN '(' value (',' value)*  ')'
@@ -140,9 +143,6 @@ groupByItem
     : fullColumnName order=(ASC | DESC)?
     ;
 
-logicalOperator
-    : AND | '&' '&'  | OR | '|' '|'
-    ;
 
 comparisonOperator
     : '=' | '>' | '<' | '<' '=' | '>' '='

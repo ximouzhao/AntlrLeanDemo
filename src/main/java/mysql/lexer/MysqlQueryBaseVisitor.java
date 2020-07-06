@@ -1,4 +1,4 @@
-// Generated from D:/javaProject/antlrv4Lean/src/main/java\MysqlQuery.g4 by ANTLR 4.8
+// Generated from D:/AntlrLeanDemo/src/main/java\MysqlQuery.g4 by ANTLR 4.8
 package mysql.lexer;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -109,13 +109,6 @@ public class MysqlQueryBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitGroupByItem(MysqlQueryParser.GroupByItemContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitLogicalOperator(MysqlQueryParser.LogicalOperatorContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
