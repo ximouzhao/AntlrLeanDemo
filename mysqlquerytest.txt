@@ -1,7 +1,7 @@
-select createtime as createtime,
-cert_parse_cn as CN,
-cert_parse_OU as OU,
-cert_attr_getStartTime as certStartTime
+select request_time as request_time,
+cert_parse_to_ST as ST,
+cert_parse_to_OU as OU,
+client_ip as client_ip
  from jsgx
  where
   cert_parse_to_OU ='025' and cert_parse_to_ST='江苏省' or cert_parse_to_OU ='027' and cert_parse_to_ST='江苏省1'
